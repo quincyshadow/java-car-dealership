@@ -36,4 +36,14 @@ The base goals of this project will create a basic vehicle inventory management 
   11. Show single transaction
   12. Add/Edit transaction
 
+- Nightmare Mode
+
+  13. Add a parts department (sales and inventory management)
+  14. Add a service department...
+
+- Nightmare Mode+
+
+  15. Add customer acquisition functionality
+  16. Add financing department
+
 - `/` is a login/signup page
