@@ -20,23 +20,23 @@ The base goals of this project will create a basic vehicle inventory management 
 
 - Base Goals
 
-  1. Show all cars
-  2. Show single car details
-  3. Add/Edit car
-  4. Show all locations
-  5. Show single location and their inventory
-  6. Add/Edit location
+  - Show all cars
+  - Show single car details
+  - Add/Edit car
+  - Show all locations
+  - Show single location and their inventory
+  - Add/Edit location
 
   > NOTE: `/` is a login/signup page
 
 - Stretch Goals
 
-  7. Show all customers
-  8. Show single customer
-  9. Add/Edit customer
-  10. Show all transactions
-  11. Show single transaction
-  12. Add/Edit transaction
+  - Show all customers
+  - Show single customer
+  - Add/Edit customer
+  - Show all transactions
+  - Show single transaction
+  - Add/Edit transaction
 
 - Nightmare Mode
 
