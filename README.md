@@ -1,4 +1,4 @@
-# Car Dealership Management Tool in...REACT
+# Car Dealership Management Tool
 
 ## Summary
 
