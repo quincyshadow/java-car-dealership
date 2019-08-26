@@ -4,6 +4,8 @@
 
 You were tasked to create a car dealership management tool for a used car dealer with multiple locations.
 
+The base goals of this project will create a basic vehicle inventory management tool. The stretch goals will add customer and purchase management, as well, making it a pretty solid dealer management software. (Not that I know how to run a dealership. I'm a dev. What do I know...)
+
 > NOTE: You won't want to fork this repo, as it could be subject to alterations and/or additions as time goes on.
 
 ### Index
