@@ -1,6 +1,6 @@
-### Customers Routes
+# Customers Routes
 
-#### Client Routes
+## Client Routes
 
 | Route Name      | Request Method | Example Request URL | Route                          |
 | --------------- | -------------- | ------------------- | ------------------------------ |
@@ -9,7 +9,7 @@
 | edit customer   | `GET`          | `/customers/1/edit` | `/customers/:customer_id/edit` |
 | add customer    | `GET`          | `/customers/add`    | `/customers/add`               |
 
-#### Server Routes
+## Server Routes
 
 | Route Name       | Request Method | Example Request URL | Route                     |
 | ---------------- | -------------- | ------------------- | ------------------------- |
@@ -18,7 +18,7 @@
 | update customer  | `PATCH`        | `/customers/1`      | `/customers/:customer_id` |
 | delete customer  | `DELETE`       | `/customers/1`      | `/customers/:customer_id` |
 
-### Customers Table
+## Customers Table
 
 | Column Name | Data Type |
 | ----------- | --------- |
@@ -30,7 +30,7 @@
 | phone       | STRING    |
 | password    | STRING    |
 
-### User Stories
+## User Stories
 
 - As a user, when I click one of customers in the list, I am taken to a page that shows me the full details about that customer.
 - As a user, when I click the add button, it takes me to a form that allows me to add a customer to the list.

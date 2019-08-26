@@ -8,7 +8,7 @@ You were tasked to create a car dealership management tool for a used car dealer
 
 ### Index
 
-- [Getting Started](#getting-started)
+- [Home](/)
 - [Cars Overview](/cars_overview.md)
 - [Locations Overview](/locations_overview.md)
 
@@ -27,5 +27,3 @@ You were tasked to create a car dealership management tool for a used car dealer
   9. Add/Edit customer
 
 - `/` is a login/signup page
-
-<a id="getting-started"></a>
