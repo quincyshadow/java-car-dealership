@@ -27,6 +27,8 @@ The base goals of this project will create a basic vehicle inventory management 
   5. Show single location and their inventory
   6. Add/Edit location
 
+  > NOTE: `/` is a login/signup page
+
 - Stretch Goals
 
   7. Show all customers
@@ -38,12 +40,14 @@ The base goals of this project will create a basic vehicle inventory management 
 
 - Nightmare Mode
 
-  13. Add a parts department (sales and inventory management)
-  14. Add a service department...
+  - Add a parts department (sales and inventory management)
+    - Make transactions a join table and differentiate types of sales, maybe?
+  - Add a service department
+    - Current jobs / parts used / invoices / customers...
 
 - Nightmare Mode+
 
-  15. Add customer acquisition functionality
-  16. Add financing department
-
-- `/` is a login/signup page
+  - Add customer acquisition functionality
+    - Mailchimp integration, Send email via MailGun, etc.
+  - Add online purchase functionality
+    - Stripe integration
