@@ -39,6 +39,8 @@
 | phone       | STRING    |
 | password    | STRING    |
 
+- STRETCH GOAL: Could have a referred_by column with an associated "referrals" table or something
+
 ## User Stories
 
 - As a user, when I click one of customers in the list, I am taken to a page that shows me the full details about that customer.
