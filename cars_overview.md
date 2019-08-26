@@ -46,4 +46,3 @@
 - As a user, when I click the add button, it takes me to a form that allows me to add a car to the list.
 - As a user, I am able to remove a car from this list by clicking the delete button next to the car.
 - As a user, I can click the edit button to take me to a form that will let me edit the car.
-- As a user, I can add a car to the comparison tool by clicking the "compare" button.
