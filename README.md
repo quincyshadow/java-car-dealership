@@ -1,4 +1,4 @@
-# Vehicle Comparison Tool in...REACT
+# Car Dealership Management Tool in...REACT
 
 ## Summary
 
