@@ -2,7 +2,7 @@
 
 ## Index
 
-- [Home](/)
+- [Home](/README.md)
 - [Cars Overview](/cars_overview.md)
 - [Locations Overview](/locations_overview.md)
 - [Customers Overview](/customers_overview.md)
