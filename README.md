@@ -47,7 +47,7 @@ The base goals of this project will create a basic vehicle inventory management 
 
   - Add employee management
     - Employee productivity/performance
-    - Track different employees in different departments
+    - Track different employees in different departments (parts, sales, service, etc.)
   - Add a parts department (sales and inventory management)
     - Make transactions a join table and differentiate types of sales, maybe?
   - Add a service department
