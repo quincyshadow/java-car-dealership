@@ -45,6 +45,9 @@ The base goals of this project will create a basic vehicle inventory management 
 
 - Nightmare Mode
 
+  - Add employee management
+    - Employee productivity/performance
+    - Track different employees in different departments
   - Add a parts department (sales and inventory management)
     - Make transactions a join table and differentiate types of sales, maybe?
   - Add a service department
@@ -54,7 +57,6 @@ The base goals of this project will create a basic vehicle inventory management 
 
 - Nightmare Mode+
 
-  - Add employee management
   - Add customer acquisition functionality
     - Mailchimp integration, Send email via MailGun, etc.
   - Add online purchase functionality
