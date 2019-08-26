@@ -1,5 +1,13 @@
 # Location Routes
 
+## Index
+
+- [Home](/)
+- [Cars Overview](/cars_overview.md)
+- [Locations Overview](/locations_overview.md)
+- [Customers Overview](/customers_overview.md)
+- [Transactions Overview](/transactions_overview.md)
+
 ## Client Location Routes
 
 | Route Name           | Request Method | Example Request URL | Route                          |
