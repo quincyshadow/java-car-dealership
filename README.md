@@ -17,6 +17,10 @@ The base goals of this project will create a basic vehicle inventory management 
 - [Transactions Overview](/transactions_overview.md)
 - [Parts Overview](/parts_overview.md)
 
+### Client Component Tree
+
+- [Click here](https://www.lucidchart.com/invitations/accept/6b87f693-f0fd-451e-8e94-72eef2d629aa)
+
 ### Main Features
 
 - Base Goals
