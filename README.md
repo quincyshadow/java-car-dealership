@@ -44,6 +44,8 @@ The base goals of this project will create a basic vehicle inventory management 
     - Make transactions a join table and differentiate types of sales, maybe?
   - Add a service department
     - Current jobs / parts used / invoices / customers...
+  - Add sales analytics
+    - Use data visualization libraries like chartsjs or the like.
 
 - Nightmare Mode+
 
