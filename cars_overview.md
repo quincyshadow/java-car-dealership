@@ -31,6 +31,7 @@
 | Column Name | Data Type |
 | ----------- | --------- |
 | id          | SERIAL    |
+| vin         | STRING    |
 | year        | INT       |
 | make        | STRING    |
 | model       | STRING    |

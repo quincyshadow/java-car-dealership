@@ -15,6 +15,7 @@ The base goals of this project will create a basic vehicle inventory management 
 - [Locations Overview](/locations_overview.md)
 - [Customers Overview](/customers_overview.md)
 - [Transactions Overview](/transactions_overview.md)
+- [Parts Overview](/parts_overview.md)
 
 ### Main Features
 

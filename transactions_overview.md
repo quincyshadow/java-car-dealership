@@ -7,6 +7,7 @@
 - [Locations Overview](/locations_overview.md)
 - [Customers Overview](/customers_overview.md)
 - [Transactions Overview](/transactions_overview.md)
+- [Parts Overview](/parts_overview.md)
 
 ## Client Routes
 
