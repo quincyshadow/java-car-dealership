@@ -54,6 +54,7 @@ The base goals of this project will create a basic vehicle inventory management 
 
 - Nightmare Mode+
 
+  - Add employee management
   - Add customer acquisition functionality
     - Mailchimp integration, Send email via MailGun, etc.
   - Add online purchase functionality

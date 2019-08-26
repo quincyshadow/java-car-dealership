@@ -40,6 +40,8 @@
 | photo_url   | STRING    |
 | location_id | INT       |
 
+- For scalability and analytics, you might consider normalizing this data a little more into separate tables, however, it's not required.
+
 ## User Stories
 
 - As a user, I can see all of the cars with the year, make, model and the dealerships they are located at.
