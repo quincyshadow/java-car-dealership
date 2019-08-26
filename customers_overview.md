@@ -1,5 +1,13 @@
 # Customers Routes
 
+## Index
+
+- [Home](/)
+- [Cars Overview](/cars_overview.md)
+- [Locations Overview](/locations_overview.md)
+- [Customers Overview](/customers_overview.md)
+- [Transactions Overview](/transactions_overview.md)
+
 ## Client Routes
 
 | Route Name      | Request Method | Example Request URL | Route                          |
@@ -36,4 +44,3 @@
 - As a user, when I click the add button, it takes me to a form that allows me to add a customer to the list.
 - As a user, I am able to remove a customer from this list by clicking the delete button next to the customer.
 - As a user, I can click the edit button to take me to a form that will let me edit the customer.
-- As a user, I can add a customer to the comparison tool by clicking the "compare" button.

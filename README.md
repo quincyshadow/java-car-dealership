@@ -11,10 +11,12 @@ You were tasked to create a car dealership management tool for a used car dealer
 - [Home](/)
 - [Cars Overview](/cars_overview.md)
 - [Locations Overview](/locations_overview.md)
+- [Customers Overview](/customers_overview.md)
+- [Transactions Overview](/transactions_overview.md)
 
-### Main Overview
+### Main Features
 
-- This app will have 9 main features:
+- Base Goals
 
   1. Show all cars
   2. Show single car details
@@ -22,8 +24,14 @@ You were tasked to create a car dealership management tool for a used car dealer
   4. Show all locations
   5. Show single location and their inventory
   6. Add/Edit location
+
+- Stretch Goals
+
   7. Show all customers
   8. Show single customer
   9. Add/Edit customer
+  10. Show all transactions
+  11. Show single transaction
+  12. Add/Edit transaction
 
 - `/` is a login/signup page
