@@ -1,0 +1,87 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.7.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: "jacoco"
+apply plugin: 'io.spring.dependency-management'
+
+jar {
+    baseName = 'java-car-dealership'
+    version = '0.0.1-SNAPSHOT'
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    assessment {
+        java.srcDir file('assessment/java')
+        resources.srcDir file('assessment/resources')
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.9
+            }
+        }
+    }
+}
+
+// send more details to the command line when tests fail
+test {
+    testLogging {
+        exceptionFormat = 'full'
+    }
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    runtime('mysql:mysql-connector-java:8.0.11')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile('com.google.code.gson:gson:2.8.0')
+    compile('org.springframework.boot:spring-boot-devtools')
+    compile('org.hibernate:hibernate-java8:5.1.0.Final')
+    // added in order to provide PATCH support to RestTemplates
+    compile('org.apache.httpcomponents:httpclient:4.5.2')
+    compile('com.google.code.gson:gson:2.8.0')
+    compile('org.projectlombok:lombok')
+
+
+
+    assessmentCompile sourceSets.main.output
+    assessmentCompile configurations.testCompile
+    assessmentCompile sourceSets.test.output
+    assessmentRuntime configurations.testRuntime
+}
+
+task assess(type: Test) {
+    testClassesDirs = sourceSets.assessment.output.classesDirs
+    classpath = sourceSets.assessment.runtimeClasspath
+}
+
+assess.finalizedBy(test)
+test.finalizedBy(jacocoTestReport)
+jacocoTestReport.finalizedBy(jacocoTestCoverageVerification)
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.6'
+    distributionType = Wrapper.DistributionType.ALL
+}
