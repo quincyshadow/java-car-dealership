@@ -2,7 +2,7 @@
 
 ## Summary
 
-You were tasked to create a car dealership management tool for a used car dealer with multiple locations.
+You were tasked to create a location dealership management tool for a used location dealer with multiple locations.
 
 The base goals of this project will create a basic vehicle inventory management tool. The stretch goals will add customer and purchase management, as well, making it a pretty solid dealer management software. (Not that I know how to run a dealership. I'm a dev. What do I know...) The nightmare mode and nightmare mode+ are just insane. You have to want it...do you?
 
@@ -25,9 +25,9 @@ The base goals of this project will create a basic vehicle inventory management 
 
 - Base Goals
 
-  - Show all cars
-  - Show single car details
-  - Add/Edit car
+  - Show all locations
+  - Show single location details
+  - Add/Edit location
   - Show all locations
   - Show single location and their inventory
   - Add/Edit location

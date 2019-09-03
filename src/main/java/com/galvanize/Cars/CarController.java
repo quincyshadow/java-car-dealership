@@ -3,17 +3,12 @@ package com.galvanize.Cars;
 import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
-import com.galvanize.Cars.Car;
-import com.galvanize.Cars.CarRepository;
 import com.galvanize.Cars.Models.*;
-import com.galvanize.User.User;
-import org.springframework.data.jpa.repository.Query;
+import com.galvanize.Locations.Location;
+import com.galvanize.Locations.LocationRepository;
 import org.springframework.http.converter.json.MappingJacksonValue;
-import org.springframework.util.DigestUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -22,9 +17,11 @@ import java.util.Optional;
 public class CarController {
 
     private final CarRepository carRepository;
+    private final LocationRepository locationRepository;
 
-    public CarController(CarRepository carRepository) {
+    public CarController(CarRepository carRepository, LocationRepository locationRepository) {
         this.carRepository = carRepository;
+        this.locationRepository = locationRepository;
     }
 
     @GetMapping
@@ -33,7 +30,8 @@ public class CarController {
         cars.setCars((ArrayList<Car>) carRepository.findAll());
 
         SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.serializeAll();
-        FilterProvider filters = new SimpleFilterProvider().addFilter("carFilter", filter);
+        FilterProvider filters = new SimpleFilterProvider().addFilter("carFilter", filter)
+                .setFailOnUnknownId(false);
         MappingJacksonValue mapping = new MappingJacksonValue(cars);
         mapping.setFilters(filters);
         return mapping;
@@ -62,7 +60,7 @@ public class CarController {
 
         Car car = carRepository.findCarById(id);
 
-        car.setLocationId(updatedCar.getLocationId());
+        car.setLocation(updatedCar.getLocation());
         car.setMiles(updatedCar.getMiles());
         car.setPrice(updatedCar.getPrice());
         car.setPhotoUrl(updatedCar.getPhotoUrl());
@@ -70,8 +68,8 @@ public class CarController {
         carRepository.save(car);
 
         SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.serializeAll();
-                //.filterOutAllExcept("id","example");
-        FilterProvider filters = new SimpleFilterProvider().addFilter("UserFilter", filter);
+        //.filterOutAllExcept("id","example");
+        FilterProvider filters = new SimpleFilterProvider().addFilter("carFilter", filter);
         MappingJacksonValue mapping = new MappingJacksonValue(car);
         mapping.setFilters(filters);
 
@@ -84,12 +82,11 @@ public class CarController {
         long id = Long.parseLong(strID);
         countCarsModel count = new countCarsModel();
 
-        if(carRepository.findById(id).isPresent())
-        {
+        if (carRepository.findById(id).isPresent()) {
 //            removedUser = userRepository.findById(id).get();
             carRepository.deleteById(id);
         }
-        count.setCount(carRepository.count() );
+        count.setCount(carRepository.count());
         StringBuilder message = new StringBuilder();
         message.append("You have successfully deleted the requested car with ID:");
         message.append("id");
@@ -99,32 +96,24 @@ public class CarController {
     }
 
     @PostMapping()
-    public MappingJacksonValue authenticateUser(@RequestBody Car car) {
+    public MappingJacksonValue postCar(@RequestBody Car car) {
 
-        postAuthUserModel postAuth = new postAuthUserModel(user);
-        User databaseFoundUser = userRepository.findOneUserByEmail(user.getEmail());
+        postCarModel postCar = new postCarModel(car);
+        long locationID = postCar.getCar().getLocationId();
 
-        if(databaseFoundUser != null)
+        if(locationID > 0)
         {
-            if ( (DigestUtils.md5DigestAsHex(user.getPassword().getBytes()) ).equals(databaseFoundUser.getPassword()))
-            {
-                postAuth.setAuthenticated(true);
-            }
-            else
-            {
-                postAuth.setAuthenticated(false);
-            }
-            SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("id", "email", "authenticated");
-            FilterProvider filters = new SimpleFilterProvider().addFilter("UserFilter", filter);
-            MappingJacksonValue mapping = new MappingJacksonValue(postAuth);
-            mapping.setFilters(filters);
-            return mapping;
+            Location location = locationRepository.findLocationById(1l);
+            car.setLocation(location);
         }
-        SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("authenticated");
-        FilterProvider filters = new SimpleFilterProvider().addFilter("UserFilter", filter);
-        MappingJacksonValue mapping = new MappingJacksonValue(postAuth);
+
+        carRepository.save(car);
+
+        SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.serializeAll();
+        FilterProvider filters = new SimpleFilterProvider().addFilter("carFilter", filter)
+                .setFailOnUnknownId(false);
+        MappingJacksonValue mapping = new MappingJacksonValue(postCar);
         mapping.setFilters(filters);
         return mapping;
     }
-
 }

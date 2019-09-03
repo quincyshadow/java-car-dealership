@@ -33,7 +33,7 @@
 | ------------ | --------- |
 | id           | SERIAL    |
 | customer     | CUSTOMER  |
-| car          | CAR       |
+| location          | CAR       |
 | date         | DATE      |
 | amt          | INT       |
 | has_warranty | BOOLEAN   |

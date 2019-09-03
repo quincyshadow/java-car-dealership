@@ -1,7 +1,6 @@
 package com.galvanize.Cars.Models;
 
 import com.galvanize.Cars.Car;
-import com.galvanize.User.User;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
