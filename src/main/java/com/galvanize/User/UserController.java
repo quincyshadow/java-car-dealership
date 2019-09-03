@@ -107,7 +107,7 @@ public class UserController {
         return count;
     }
 
-    @PostMapping("/authenticate")
+    @PostMapping()
     public MappingJacksonValue authenticateUser(@RequestBody User user) {
 
         postAuthUserModel postAuth = new postAuthUserModel(user);
