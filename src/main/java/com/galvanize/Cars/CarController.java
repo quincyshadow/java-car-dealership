@@ -103,7 +103,7 @@ public class CarController {
 
         if(locationID > 0)
         {
-            Location location = locationRepository.findLocationById(1l);
+            Location location = locationRepository.findLocationById(locationID);
             car.setLocation(location);
         }
 
