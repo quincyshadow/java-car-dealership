@@ -1,3 +1,23 @@
+1. Please create a mysql db.
+```
+mysql -uroot -e "create database if not exists java_car_dealership;"
+```
+
+2. Please start the Java/Spring backend api. To do this from the root dir, it is 
+```
+./gradlew bootRun
+```
+
+3. Please execute the client npm script.
+```
+npm start
+```
+### `npm run build`
+
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
+Your app is ready to be deployed!
+
 # Car Dealership Management Tool
 
 ## Summary
