@@ -12,19 +12,19 @@
 
 | Route Name      | Request Method | Example Request URL | Route                |
 | --------------- | -------------- | ------------------- | -------------------- |
-| locations index      | `GET`          | `/locations`             | `/locations`              |
-| single location page | `GET`          | `/locations/1`           | `/locations/:car_id`      |
-| locations edit       | `GET`          | `/locations/1/edit`      | `/locations/:car_id/edit` |
-| locations new page   | `GET`          | `/locations/new`         | `/locations/new`          |
+| cars index      | `GET`          | `/cars`             | `/cars`              |
+| single car page | `GET`          | `/cars/1`           | `/cars/:car_id`      |
+| cars edit       | `GET`          | `/cars/1/edit`      | `/cars/:car_id/edit` |
+| cars new page   | `GET`          | `/cars/new`         | `/cars/new`          |
 
 ## Server Routes
 
 | Route Name   | Request Method | Example Request URL | Route           |
 | ------------ | -------------- | ------------------- | --------------- |
-| all locations     | `GET`          | `/locations`             | `/locations`         |
-| locations create  | `POST`         | `/locations`             | `/locations`         |
-| locations update  | `PATCH`        | `/locations/1`           | `/locations/:car_id` |
-| locations destroy | `DELETE`       | `/locations/1`           | `/locations/:car_id` |
+| all cars     | `GET`          | `/cars`             | `/cars`         |
+| cars create  | `POST`         | `/cars`             | `/cars`         |
+| cars update  | `PATCH`        | `/cars/1`           | `/cars/:car_id` |
+| cars destroy | `DELETE`       | `/cars/1`           | `/cars/:car_id` |
 
 ## Cars Table
 
@@ -44,8 +44,8 @@
 
 ## User Stories
 
-- As a user, I can see all of the locations with the year, make, model and the dealerships they are located at.
-- As a user, when I click one of locations in the list, I am taken to a page that shows me the full details about that location.
-- As a user, when I click the add button, it takes me to a form that allows me to add a location to the list.
-- As a user, I am able to remove a location from this list by clicking the delete button next to the location.
-- As a user, I can click the edit button to take me to a form that will let me edit the location.
+- As a user, I can see all of the cars with the year, make, model and the dealerships they are located at.
+- As a user, when I click one of cars in the list, I am taken to a page that shows me the full details about that car.
+- As a user, when I click the add button, it takes me to a form that allows me to add a car to the list.
+- As a user, I am able to remove a car from this list by clicking the delete button next to the car.
+- As a user, I can click the edit button to take me to a form that will let me edit the car.

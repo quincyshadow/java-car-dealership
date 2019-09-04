@@ -14,9 +14,16 @@ function App() {
         <TopNav />
         <Switch>
           <Route exact path="/" component={Login} />
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/bill-pay" component={BillPay} />
-          <Route path="/account/:account_id" component={AccountSummary} />
+
+          <Route path="/locations" component={Locations} />
+          <Route path="/locations/:location_id" component={LocationSummary} />
+          <Route path="/locations/new" component={NewLocation} />
+          <Route path="/locations/:location_id/edit" component={LocationSummaryEdit} />
+
+          <Route path="/cars" component={Cars} />
+          <Route path="/cars/:car_id" component={CarSummary} />
+          <Route path="/cars/:car_id/edit" component={CarSummaryEdit} />
+          <Route path="/cars/new" component={NewCar} />     
           <Route path="*" render={() => <div>Not found</div>} />
         </Switch>
       </div>
