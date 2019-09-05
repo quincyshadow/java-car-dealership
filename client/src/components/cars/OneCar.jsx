@@ -15,7 +15,7 @@ import {
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
-import { getAllCars, getOneCar } from "../../store/cars/actions";
+import { getOneCar } from "../../store/cars/actions";
 
 const AllCars = props => {
   const styles = {
@@ -25,14 +25,10 @@ const AllCars = props => {
   };
 
   const dispatch = useDispatch();
-  let getCars = function() {
+  let getCars = async function() {
     // call our action creator
     dispatch(getAllCars(null, props.history));
   };
-
-    function componentDidMount() {
-    getCars();
-  }
 
   // const [cars, setCars] = useState({});
   //
@@ -40,12 +36,10 @@ const AllCars = props => {
   //   getCars();
   // }, []);
 
+  getCars();
+
   let carItems = [];
   let carList = useSelector(state => state.cars.carList);
-  let idAndRedir = function(id)
-  {
-    getOneCar(id, null, null);
-  }
 
   if (carList) {
     carItems = carList.map(item => {
@@ -69,8 +63,7 @@ const AllCars = props => {
                 <li>Location: {item.locationId}</li>
               </ul>
             </CardText>
-            {/* <Button onClick={`./cars/${item.id}`}>View Car</Button> */}
-            <Button onClick={idAndRedir(item.id)}>View Car</Button>
+            <Button href={`./cars/${item.id}`}>View Car</Button>
           </CardBody>
         </Card>
       );

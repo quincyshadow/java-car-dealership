@@ -1,6 +1,9 @@
+export const BASE_URL = '/cars'
+
 export const GET_ALL_CARS_PENDING = 'GET_ALL_CARS_PENDING'
 //
 export const GET_ALL_CARS_SUCCESS = 'GET_ALL_CARS_SUCCESS'
 export const GET_ALL_CARS_FAILED = 'GET_ALL_CARS_FAILED'
-
-export const BASE_URL = '/cars'
+export const GET_ONE_CAR_PENDING = 'GET_ONE_CAR_PENDING'
+export const GET_ONE_CAR_SUCCESS = 'GET_ONE_CAR_SUCCESS'
+export const GET_ONE_CAR_FAILED = 'GET_ONE_CAR_FAILED'

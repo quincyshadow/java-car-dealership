@@ -19,7 +19,7 @@ function TopNav() {
   return (
     <div>
       <Navbar color="primary" dark expand="md">
-        <NavbarBrand href="/">Galva Bank</NavbarBrand>
+        <NavbarBrand href="/">Car Dealership</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>

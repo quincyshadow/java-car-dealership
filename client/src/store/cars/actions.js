@@ -17,3 +17,25 @@ export const getAllCars = (creds, history) => async dispatch => {
     })
   }
 }
+
+export const getOneCar = (id, creds, history) => async dispatch =>
+{
+  dispatch({type: types.GET_ONE_CAR_PENDING})
+  try
+  {
+      let response = await axios.get(`${types.BASE_URL}/${id}`)
+      dispatch({
+      type: types.GET_ONE_CAR_SUCCESS,
+      payload: response.data.car
+    })
+    history.push(`/${id}`)
+  }
+  catch(err)
+  {
+    dispatch({
+      type: types.GET_ONE_CAR_FAILED,
+      payload: err
+    })
+  }
+
+}
