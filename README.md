@@ -1,3 +1,8 @@
+***NOTICE FOR WSL***
+Please restart mySQL server upon entering WSL (If it is not started or in an error state).
+```
+sudo service mysql restart
+```
 1. Please create a mysql db.
 ```
 mysql -uroot -e "create database if not exists java_car_dealership;"
