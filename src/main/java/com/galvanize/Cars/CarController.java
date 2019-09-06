@@ -101,11 +101,12 @@ public class CarController{
         Car car = new Car();
 
         car.setPrice((int) map.get("price"));
-        car.setPhotoUrl((String) map.get("photourl"));
+        car.setPhotoUrl(map.get("photoUrl").toString());
         car.setMiles((int) map.get("miles"));
-        car.setModel((String) map.get("model"));
-        car.setMake((String) map.get("make"));
+        car.setModel(map.get("model").toString());
+        car.setMake(map.get("make").toString());
         car.setYear((int) map.get("year"));
+        car.setVin(map.get("vin").toString());
 
         long id = Long.parseLong(map.get("locationid").toString());
 
