@@ -8,8 +8,8 @@ import Login from './components/auth/Login'
 // import AccountSummary from './components/account-summary/AccountSummary'
 import AllCars from './components/cars/AllCars';
 import OneCar from './components/cars/OneCar'
-
-
+import NewCar from './components/cars/NewCar'
+import EditCar from './components/cars/EditCar'
 function App() {
   return (
     <Router>
@@ -24,9 +24,9 @@ function App() {
           {/* <Route path="/locations/:location_id/edit" component={LocationSummaryEdit} /> */}
 
           <Route exact path="/cars" component={AllCars} />
-          <Route path="/cars/:car_id" component={OneCar} />
-          {/* <Route path="/cars/:car_id/edit" component={CarSummaryEdit} /> */}
-          {/* <Route path="/cars/new" component={NewCar} />      */}
+          <Route exact path="/cars/new" component={NewCar} />  
+          <Route exact path="/cars/:car_id" component={OneCar} />
+          <Route path="/cars/:car_id/edit" component={EditCar} />   
           {/* <Route path="*" render={() => <div>Not found</div>} /> */}
         </Switch>
       </div>

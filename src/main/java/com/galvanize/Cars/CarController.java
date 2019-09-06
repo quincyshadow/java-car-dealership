@@ -58,15 +58,22 @@ public class CarController{
     }
 
     @PatchMapping("/{strID}")
-    public MappingJacksonValue updateOneCar(@RequestBody Car updatedCar, @PathVariable String strID) {
+    public MappingJacksonValue updateOneCar(@RequestBody Map<String,Object> map, @PathVariable String strID) {
         long id = Long.parseLong(strID);
 
         Car car = carRepository.findCarById(id);
 
-        car.setLocation(updatedCar.getLocation());
-        car.setMiles(updatedCar.getMiles());
-        car.setPrice(updatedCar.getPrice());
-        car.setPhotoUrl(updatedCar.getPhotoUrl());
+        if(map.containsKey("price")) {car.setPrice((int) map.get("price"));}
+        if(map.containsKey("photoUrl")) {car.setPhotoUrl(map.get("photoUrl").toString());}
+        if(map.containsKey("miles")) {car.setMiles((int) map.get("miles"));}
+        if(map.containsKey("model")) {car.setModel(map.get("model").toString());}
+        if(map.containsKey("make")) {car.setMake(map.get("make").toString());}
+        if(map.containsKey("year")) {car.setYear((int) map.get("year"));}
+        if(map.containsKey("vin")) {car.setVin(map.get("vin").toString());}
+        if(map.containsKey("locationId")) {long locationId = Long.parseLong(map.get("locationId").toString());
+            Location location = locationRepository.findLocationById(locationId);
+            car.setLocation(location);
+        }
 
         carRepository.save(car);
 
@@ -80,7 +87,7 @@ public class CarController{
         return mapping;
     }
 
-    @DeleteMapping("/{strID}")
+    @DeleteMapping("/{strID}/delete")
     public countCarsModel deleteOneCar(@PathVariable String strID) {
 
         long id = Long.parseLong(strID);

@@ -16,7 +16,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { withRouter } from 'react-router-dom';
 
-import { getAllCars, getOneCar } from "../../store/cars/actions";
+import { getAllCars, getOneCar, deleteOneCar } from "../../store/cars/actions";
 
 const AllCars = props => {
   const styles = {
@@ -30,9 +30,6 @@ const AllCars = props => {
     dispatch(getAllCars(null, props.history));
   }
   
-  useEffect(() => {
-    getCars();
-  },[])
 
   const [cars, setCars] = useState({});
   //
@@ -42,11 +39,19 @@ const AllCars = props => {
 
   let carItems = [];
   let carList = useSelector(state => state.cars.carList);
-
+  useEffect(() => {
+    getCars();
+  },[carList])
   let idAndRedir = function(id)
   {
     dispatch(getOneCar(id, null, props.history));
     // props.history.push(`/${id}`)
+  }
+
+  let deleteAndRedir = function(id)
+  {
+    dispatch(deleteOneCar(id, null, props.history));
+    getCars();
   }
 
   if (carList) {
@@ -72,7 +77,9 @@ const AllCars = props => {
               </ul>
             </CardText>
             {/* <Button onClick={`./cars/${item.id}`}>View Car</Button> */}
-            <Button onClick={() =>idAndRedir(item.id)}>View Car</Button>
+            <Button color="primary" className="mr-1" onClick={() =>idAndRedir(item.id)}>View Car</Button>
+            <Button color="warning" className="float-right mr-1" href={"/cars/"+item.id+"/edit" }>Edit</Button>
+            <Button color="danger" className="float-right" onClick={() => deleteAndRedir(item.id) }>Delete</Button>
           </CardBody>
         </Card>
       );

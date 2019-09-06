@@ -1,11 +1,11 @@
-mysql -uroot;
-connect java_car_dealership;
+-- mysql -uroot;
+-- connect java_car_dealership;
 
-drop table cars;
-drop table locations;
-###############
-#Start java-spring server before exectuing below code. It will create the new
-#Tables for you.
+-- drop table cars;
+-- drop table locations;
+-- 
+-- Start java-spring server before exectuing below code. It will create the new
+-- Tables for you.
 
 INSERT INTO locations (id,name,address)
 VALUES

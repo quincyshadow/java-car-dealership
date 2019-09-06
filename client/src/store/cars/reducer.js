@@ -3,6 +3,7 @@ import * as types from "./constants";
 const initialState = {
   carList: [],
   viewedCar: {},
+  editCar: {},
   // isAuthed: false,
   // user: {},
   err: {}
