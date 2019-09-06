@@ -1,7 +1,6 @@
 package com.galvanize.Cars;
 
-import com.fasterxml.jackson.annotation.JsonFilter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.*;
 import com.galvanize.Locations.Location;
 //import com.sun.xml.internal.bind.annotation.OverrideAnnotationOf;
 import lombok.*;
@@ -20,6 +19,9 @@ public class Car implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "location_id")
+    @Access(AccessType.FIELD)
+//    @JsonBackReference
+    @JsonIgnoreProperties("cars")
     private Location location;
 
     @Id

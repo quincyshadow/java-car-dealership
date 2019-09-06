@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Data
@@ -19,12 +20,12 @@ public class getOneLocationModel {
     private long id;
     private String name;
     private String address;
-    private List<Car> cars;
+    private Collection<Car> cars;
 
     public void setLocation(Location location) {
         this.id = location.getId();
         this.name = location.getName();
         this.address = location.getAddress();
-//        this.cars = (ArrayList) location.getCars();
+        this.cars = location.getCars();
     }
 }

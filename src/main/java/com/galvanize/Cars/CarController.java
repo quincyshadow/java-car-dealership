@@ -46,8 +46,9 @@ public class CarController{
 
         getOneCarModel cars = new getOneCarModel();
         cars.setCar(car.get());
+        cars.setLocation(car.get().getLocation());
 
-        SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.serializeAll();
+        SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.serializeAllExcept("cars");
         FilterProvider filters = new SimpleFilterProvider().addFilter("carFilter", filter)
                 .addFilter("locationFilter", filter);
         MappingJacksonValue mapping = new MappingJacksonValue(cars);

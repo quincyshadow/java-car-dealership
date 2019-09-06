@@ -17,6 +17,9 @@ public class getAllCarsModel {
     private ArrayList<Car> cars;
 
     public getAllCarsModel(ArrayList<Car> cars) {
-        this.cars = cars;
+        for(Car car:cars)
+        {
+
+        }
     }
 }
