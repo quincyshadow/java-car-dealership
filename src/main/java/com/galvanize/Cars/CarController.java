@@ -48,7 +48,8 @@ public class CarController{
         cars.setCar(car.get());
 
         SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.serializeAll();
-        FilterProvider filters = new SimpleFilterProvider().addFilter("carFilter", filter);
+        FilterProvider filters = new SimpleFilterProvider().addFilter("carFilter", filter)
+                .addFilter("locationFilter", filter);
         MappingJacksonValue mapping = new MappingJacksonValue(cars);
         mapping.setFilters(filters);
 
@@ -70,7 +71,8 @@ public class CarController{
 
         SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.serializeAll();
         //.filterOutAllExcept("id","example");
-        FilterProvider filters = new SimpleFilterProvider().addFilter("carFilter", filter);
+        FilterProvider filters = new SimpleFilterProvider().addFilter("carFilter", filter)
+                .addFilter("locationFilter", filter);
         MappingJacksonValue mapping = new MappingJacksonValue(car);
         mapping.setFilters(filters);
 

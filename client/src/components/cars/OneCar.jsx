@@ -39,8 +39,9 @@ const OneCar = props => {
   // let carItems = [];
   let viewedCar = useSelector(state => state.cars.viewedCar);
 
-  if(viewedCar.id != null)
+  if(viewedCar != null && viewedCar.id != null)
   {
+    //continue..
   }
   else
     {
@@ -111,7 +112,18 @@ const OneCar = props => {
         <ListGroupItem>{viewedCar.model}</ListGroupItem>
         <ListGroupItem>{viewedCar.miles}</ListGroupItem>
         <ListGroupItem>${viewedCar.price != null ? viewedCar.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') : null}</ListGroupItem>
-        <ListGroupItem>{viewedCar.locationId}</ListGroupItem>
+        <ListGroupItem>
+        {viewedCar.location != null ?
+        (<a href={"/locations/"+viewedCar.location.id} >
+          {viewedCar.location.name} 
+        </a>)
+          :null
+        }
+
+          <hr />
+          {viewedCar.location != null ?
+          viewedCar.location.address :null}
+       </ListGroupItem>
   </ListGroup>
   </Col>
   </>
