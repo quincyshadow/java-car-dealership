@@ -1,7 +1,20 @@
+***NOTICE FOR WSL***
+Please restart mySQL server upon entering WSL (If it is not started or in an error state).
+```
+sudo service mysql restart
+```
 1. Please create a mysql db.
 ```
 mysql -uroot -e "create database if not exists java_car_dealership;"
 ```
+(For testing purposes, you can manually drop tables with the format...)
+```
+mysql -uroot java_car_dealership;
+#Then,
+drop table cars;
+drop table locations;
+```
+(These tables are automatically generated when Java/Spring server starts, as long as the database exists.)
 
 2. Please start the Java/Spring backend api. To do this from the root dir, it is 
 ```
