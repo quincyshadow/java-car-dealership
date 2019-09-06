@@ -6,8 +6,8 @@ import Login from './components/auth/Login'
 // import Dashboard from './components/dashboard/Dashboard'
 // import BillPay from './components/bill-pay/BillPay'
 // import AccountSummary from './components/account-summary/AccountSummary'
-
 import AllCars from './components/cars/AllCars';
+import OneCar from './components/cars/OneCar'
 
 
 function App() {
@@ -23,8 +23,8 @@ function App() {
           {/* <Route path="/locations/new" component={NewLocation} /> */}
           {/* <Route path="/locations/:location_id/edit" component={LocationSummaryEdit} /> */}
 
-          <Route path="/cars" component={AllCars} />
-          {/* <Route path="/cars/:car_id" component={CarSummary} /> */}
+          <Route exact path="/cars" component={AllCars} />
+          <Route path="/cars/:car_id" component={OneCar} />
           {/* <Route path="/cars/:car_id/edit" component={CarSummaryEdit} /> */}
           {/* <Route path="/cars/new" component={NewCar} />      */}
           {/* <Route path="*" render={() => <div>Not found</div>} /> */}

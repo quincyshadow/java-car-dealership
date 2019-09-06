@@ -14,6 +14,7 @@ import {
 } from "reactstrap";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { withRouter } from 'react-router-dom';
 
 import { getAllCars, getOneCar } from "../../store/cars/actions";
 
@@ -26,15 +27,14 @@ const AllCars = props => {
 
   const dispatch = useDispatch();
   let getCars = function() {
-    // call our action creator
     dispatch(getAllCars(null, props.history));
-  };
-
-    function componentDidMount() {
-    getCars();
   }
+  
+  useEffect(() => {
+    getCars();
+  },[])
 
-  // const [cars, setCars] = useState({});
+  const [cars, setCars] = useState({});
   //
   // useEffect(() => {
   //   getCars();
@@ -42,9 +42,11 @@ const AllCars = props => {
 
   let carItems = [];
   let carList = useSelector(state => state.cars.carList);
+
   let idAndRedir = function(id)
   {
-    getOneCar(id, null, null);
+    dispatch(getOneCar(id, null, props.history));
+    // props.history.push(`/${id}`)
   }
 
   if (carList) {
@@ -70,7 +72,7 @@ const AllCars = props => {
               </ul>
             </CardText>
             {/* <Button onClick={`./cars/${item.id}`}>View Car</Button> */}
-            <Button onClick={idAndRedir(item.id)}>View Car</Button>
+            <Button onClick={() =>idAndRedir(item.id)}>View Car</Button>
           </CardBody>
         </Card>
       );
@@ -91,4 +93,5 @@ const AllCars = props => {
     </Container>
   );
 };
-export default AllCars;
+
+export default withRouter(AllCars);

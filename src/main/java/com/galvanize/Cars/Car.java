@@ -5,8 +5,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.galvanize.Locations.Location;
 //import com.sun.xml.internal.bind.annotation.OverrideAnnotationOf;
 import lombok.*;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "cars")
@@ -14,7 +16,11 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonFilter("carFilter")
-public class Car {
+public class Car implements Serializable {
+
+    @ManyToOne
+    @JoinColumn(name = "location_id")
+    private Location location;
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -41,24 +47,30 @@ public class Car {
     @Column
     private String photoUrl;
 
-    @Column
-    private long locationId;
+//    @Column
+//    private long locationId;
 
     //By using FetchType.LAZY you will just get ID, then u need to
     //getWhatever();
-    @ManyToOne(fetch=FetchType.LAZY, optional = false)
-    @JoinColumn(name="location", nullable = false)
-    @JsonIgnore
-    private Location location;
+//    @ManyToOne(fetch=FetchType.LAZY)
+//    @JoinColumn(name="location_id", nullable = false)
+////    @JoinColumn(name="location_name", referencedColumnName="name", columnDefinition = "varchar(255) default '15-JUL-1980'")
+//    private Location location;
 
-    public void setLocation(Location location)
-    {
-        this.location = location;
-        if(!location.getCars().contains(this))
-        {
-            location.getCars().add(this);
-        }
-    }
+//    public void setLocation(Location location)
+//    {
+//        this.location = location;
+//        if(!location.getCars().contains(this))
+//        {
+//          location.getCars().add(this);
+//            //location.addCar(this);
+//        }
+//    }
+
+//    public void setLocationName(Location location)
+//    {
+//        this.loca
+//    }
 
 //    public long getLocationID(Location location)
 //    {

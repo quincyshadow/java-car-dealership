@@ -25,6 +25,6 @@ public class getOneLocationModel {
         this.id = location.getId();
         this.name = location.getName();
         this.address = location.getAddress();
-        this.cars = location.getCars();
+//        this.cars = (ArrayList) location.getCars();
     }
 }

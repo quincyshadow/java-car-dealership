@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/locations")
+//@RequestMapping("/locations")
 public class LocationController {
 
     private final LocationRepository locationRepository;
@@ -21,7 +21,7 @@ public class LocationController {
         this.locationRepository = locationRepository;
     }
 
-    @GetMapping
+    @GetMapping("/locations")
     public MappingJacksonValue getAllLocations() {
         getAllLocationsModel locations = new getAllLocationsModel();
         locations.setLocations((ArrayList<Location>) locationRepository.findAll());
@@ -33,7 +33,7 @@ public class LocationController {
         return mapping;
     }
 
-    @GetMapping("/{strID}")
+    @GetMapping("/locations/{strID}")
     public MappingJacksonValue getOneLocation(@PathVariable String strID) {
 
         long id = Long.parseLong(strID);
@@ -51,7 +51,7 @@ public class LocationController {
         return mapping;
     }
 
-    @PatchMapping("/{strID}")
+    @PatchMapping("/locations/{strID}")
     public MappingJacksonValue updateOneCar(@RequestBody Location updatedLocation, @PathVariable String strID) {
         long id = Long.parseLong(strID);
 
@@ -72,7 +72,7 @@ public class LocationController {
         return mapping;
     }
 
-    @DeleteMapping("/{strID}")
+    @DeleteMapping("/locations/{strID}")
     public countLocationsModel deleteOneCar(@PathVariable String strID) {
 
         long id = Long.parseLong(strID);

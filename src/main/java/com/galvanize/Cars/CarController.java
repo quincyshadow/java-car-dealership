@@ -10,11 +10,12 @@ import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/cars")
-public class CarController {
+public class CarController{
 
     private final CarRepository carRepository;
     private final LocationRepository locationRepository;
@@ -96,24 +97,33 @@ public class CarController {
     }
 
     @PostMapping()
-    public MappingJacksonValue postCar(@RequestBody Car car) {
+    public MappingJacksonValue postCar(@RequestBody Map<String,Object> map) {
+        Car car = new Car();
 
+        car.setPrice((int) map.get("price"));
+        car.setPhotoUrl((String) map.get("photourl"));
+        car.setMiles((int) map.get("miles"));
+        car.setModel((String) map.get("model"));
+        car.setMake((String) map.get("make"));
+        car.setYear((int) map.get("year"));
+
+        long id = Long.parseLong(map.get("locationid").toString());
+
+        Location location = locationRepository.findLocationById(id);
+        car.setLocation(location);
+
+        //{vin=ASD123, year=2019, make=jeep, model=jeepra, miles=23, price=20500, photoUrl=http://url.com, locationid=2}
         postCarModel postCar = new postCarModel(car);
-        long locationID = postCar.getCar().getLocationId();
-
-        if(locationID > 0)
-        {
-            Location location = locationRepository.findLocationById(locationID);
-            car.setLocation(location);
-        }
 
         carRepository.save(car);
 
         SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.serializeAll();
+        //.filterOutAllExcept("id","example");
         FilterProvider filters = new SimpleFilterProvider().addFilter("carFilter", filter)
-                .setFailOnUnknownId(false);
+                .addFilter("locationFilter", filter);
         MappingJacksonValue mapping = new MappingJacksonValue(postCar);
         mapping.setFilters(filters);
+
         return mapping;
     }
 }

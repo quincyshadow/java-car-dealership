@@ -28,7 +28,8 @@ export const getOneCar = (id, creds, history) => async dispatch =>
       type: types.GET_ONE_CAR_SUCCESS,
       payload: response.data.car
     })
-    history.push(`/${id}`)
+
+    history.push(`/cars/${id}/`)
   }
   catch(err)
   {
