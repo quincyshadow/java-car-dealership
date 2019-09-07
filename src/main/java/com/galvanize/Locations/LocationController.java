@@ -57,15 +57,16 @@ public class LocationController {
 
         Location location = locationRepository.findLocationById(id);
 
-        location.setId(updatedLocation.getId());
-        location.setAddress(updatedLocation.getAddress());
-        location.setName(updatedLocation.getName());
+        Long longVal = updatedLocation.getId();
+//        if(longVal != null && longVal > 0) { location.setId(longVal); }
+        if(updatedLocation.getAddress() !=null) {location.setAddress(updatedLocation.getAddress()); }
+        if(updatedLocation.getName() !=null) location.setName(updatedLocation.getName());
 
         locationRepository.save(location);
 
         SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.serializeAll();
         //.filterOutAllExcept("id","example");
-        FilterProvider filters = new SimpleFilterProvider().addFilter("locationFilter", filter);
+        FilterProvider filters = new SimpleFilterProvider().addFilter("locationFilter", filter).setFailOnUnknownId(false);;
         MappingJacksonValue mapping = new MappingJacksonValue(location);
         mapping.setFilters(filters);
 
@@ -92,15 +93,14 @@ public class LocationController {
     }
 
     @PostMapping()
-    public MappingJacksonValue authenticateUser(@RequestBody Location location) {
+    public MappingJacksonValue postLocation(@RequestBody Location location) {
 
-        postLocationModel postCar = new postLocationModel(location);
+        postLocationModel postLocation = new postLocationModel(location);
         locationRepository.save(location);
-
 
         SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.serializeAll();
         FilterProvider filters = new SimpleFilterProvider().addFilter("locationFilter", filter);
-        MappingJacksonValue mapping = new MappingJacksonValue(postCar);
+        MappingJacksonValue mapping = new MappingJacksonValue(postLocation);
         mapping.setFilters(filters);
         return mapping;
     }

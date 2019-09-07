@@ -24,7 +24,7 @@ export const getOneLoc = (id, creds, history, method) => async dispatch => {
     let response = await axios.get(`${types.BASE_URL}/${id}`);
     dispatch({
       type: types.GET_ONE_LOC_SUCCESS,
-      payload: response.data.location
+      payload: response.data
     });
     if (method == "edit") {
       // history.push(`/locs/${id}/edit`);
@@ -42,7 +42,7 @@ export const getOneLoc = (id, creds, history, method) => async dispatch => {
 export const deleteOneLoc = (id, cred, history) => async dispatch => {
     dispatch({ type: types.DELETE_ONE_LOC_PENDING });
   try {
-    let response = await axios.delete(`${types.BASE_URL}/${id}/delete`);
+    let response = await axios.delete(`${types.BASE_URL}/${id}`);
     dispatch({
       type: types.DELETE_ONE_LOC_SUCCESS
     });

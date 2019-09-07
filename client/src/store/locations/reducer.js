@@ -41,6 +41,14 @@ export default (state = initialState, action) => {
         err: action.payload,
         viewedLoc: {}
       };
+    
+    // case types.DELETE_ONE_LOC_SUCCESS:
+    //   {
+    //     return {
+    //       ...state,
+    //       locList: [...state,]
+    //     }
+    //   };
 
     default:
       return state;

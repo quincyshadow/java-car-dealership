@@ -32,17 +32,13 @@ const AllLocations = props => {
   
 
   const [locs, setLocs] = useState({});
-  //
-  // useEffect(() => {
-  //   getCars();
-  // }, []);
-
+  
   let locItems = [];
   let locList = useSelector(state => state.locations.locList);
 
   useEffect(() => {
     getLocs();
-  },[locList])
+  },[])
   let idAndRedir = function(id)
   {
     dispatch(getOneLoc(id, null, props.history));
@@ -81,7 +77,7 @@ const AllLocations = props => {
             </CardText>
             {/* <Button onClick={`./cars/${item.id}`}>View Car</Button> */}
             <Button color="primary" className="mr-1" onClick={() =>idAndRedir(item.id)}>View Location</Button>
-            <Button color="warning" className="float-right mr-1" href={"/location/"+item.id+"/edit" }>Edit</Button>
+            <Button color="warning" className="float-right mr-1" href={"/locations/"+item.id+"/edit" }>Edit</Button>
             <Button color="danger" className="float-right" onClick={() => deleteAndRedir(item.id) }>Delete</Button>
           </CardBody>
         </Card>

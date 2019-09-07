@@ -42,7 +42,8 @@ const AllCars = props => {
 
   useEffect(() => {
     getCars();
-  },[carList])
+  },[])
+
   let idAndRedir = function(id)
   {
     dispatch(getOneCar(id, null, props.history));

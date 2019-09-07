@@ -44,101 +44,6 @@ const EditCar = props => {
 
   const { register, handleSubmit, formState } = useForm();
 
-  // const styles = {
-  //   rowStyles: {
-  //     marginTop: "22vh"
-  //   }
-  // };
-  // let getNewCar = function() {
-  //   (getOneCar(props.match.params.car_id, null, props.history));
-  // }
-
-  // useEffect(() => {
-  //   getNewCar();
-  // },[])
-
-
-  // useEffect(() => {
-  //   getNewCar();
-  // }, []);
-  // let idAndRedir = function(id)
-  // {
-  //   dispatch(getOneCar(id, null, props.history));
-  //   // props.history.push(`/${id}`)
-  // }
-
-  // if (carList) {
-  //   carItems = carList.map(item => {
-  //     let card = (
-  //       <Card key={item.id} className="col-4">
-  //         <CardImg
-  //           top
-  //           width="100%"
-  //           src={item.photoUrl}
-  //           alt={`${item.make} ${item.model}`}
-  //         />
-  //         <CardBody>
-  //           <CardTitle>
-  //             {item.year} {item.make} {item.model}
-  //           </CardTitle>
-  //           <CardSubtitle>${item.price}</CardSubtitle>
-  //           <CardText>
-  //             <ul>
-  //               <li>VIN: {item.vin}</li>
-  //               <li>Miles: {item.miles}</li>
-  //               <li>Location: {item.locationId}</li>
-  //             </ul>
-  //           </CardText>
-  //           {/* <Button onClick={`./cars/${item.id}`}>View Car</Button> */}
-  //           <Button onClick={() =>idAndRedir(item.id)}>View Car</Button>
-  //         </CardBody>
-  //       </Card>
-  //     );
-  //     return card;
-  //   });
-
-  // {"id":1,"vin":"ASD123","year":2019,"make":"Chevroley","model":"Cruze","miles":23,"price":20500,"photoUrl":null,"locationId":1}
-  //
-  //   let lg1 = (
-  //     <>
-  //   <Col>
-  //   <ListGroup flush className="text-primary text-right">
-  //         <ListGroupItem>ID</ListGroupItem>
-  //         <ListGroupItem>VIN</ListGroupItem>
-  //         <ListGroupItem>Year</ListGroupItem>
-  //         <ListGroupItem>Make</ListGroupItem>
-  //         <ListGroupItem>Model</ListGroupItem>
-  //         <ListGroupItem>Miles</ListGroupItem>
-  //         <ListGroupItem>Price</ListGroupItem>
-  //         <ListGroupItem>Location</ListGroupItem>
-  //   </ListGroup>
-  //   </Col>
-  //   <Col>
-  //   <ListGroup className="font-weight-bold">
-  //         <ListGroupItem>{viewedCar.id}</ListGroupItem>
-  //         <ListGroupItem>{viewedCar.vin}</ListGroupItem>
-  //         <ListGroupItem>{viewedCar.year}</ListGroupItem>
-  //         <ListGroupItem>{viewedCar.make}</ListGroupItem>
-  //         <ListGroupItem>{viewedCar.model}</ListGroupItem>
-  //         <ListGroupItem>{viewedCar.miles}</ListGroupItem>
-  //         <ListGroupItem>${viewedCar.price != null ? viewedCar.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') : null}</ListGroupItem>
-  //         <ListGroupItem>
-  //         {viewedCar.location != null ?
-  //         (<a href={"/locations/"+viewedCar.location.id} >
-  //           {viewedCar.location.name}
-  //         </a>)
-  //           :null
-  //         }
-  //
-  //           <hr />
-  //           {viewedCar.location != null ?
-  //           viewedCar.location.address :null}
-  //        </ListGroupItem>
-  //   </ListGroup>
-  //   </Col>
-  //   </>
-  //     );
-
   const onSubmit = async (data) => {
      console.log("Data to be patched:")
 
@@ -193,34 +98,13 @@ const EditCar = props => {
 
   return (
     <Container className="pt-5">
-      {/* {console.log(cars)} */}
-{/*  */}
-{/*         <ListGroupItem>{viewedCar.id}</ListGroupItem> */}
-{/*         <ListGroupItem>{viewedCar.vin}</ListGroupItem> */}
-{/*         <ListGroupItem>{viewedCar.year}</ListGroupItem> */}
-{/*         <ListGroupItem>{viewedCar.make}</ListGroupItem> */}
-{/*         <ListGroupItem>{viewedCar.model}</ListGroupItem> */}
-{/*         <ListGroupItem>{viewedCar.miles}</ListGroupItem> */}
-{/*         <ListGroupItem>${viewedCar.price != null ? viewedCar.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') : null}</ListGroupItem> */}
-{/*         <ListGroupItem> */}
-{/*         {viewedCar.location != null ? */}
-{/*         (<a href={"/locations/"+viewedCar.location.id} > */}
-{/*           {viewedCar.location.name}  */}
-{/*         </a>) */}
-{/*           :null */}
-{/*         } */}
-{/*  */}
-{/*           <hr /> */}
-{/*           {viewedCar.location != null ? */}
-{/*           viewedCar.location.address :null} */}
-
       <Row className="pb-4 justify-content-center">
         <Col lg="8">
           <h2>Edit Car: {viewedCar.model}</h2>
           <Form onSubmit={handleSubmit(onSubmit)}>
                         <FormGroup>
               <Label for="id">ID</Label>
-              <Input type="text" defaultValue={viewedCar.id} name="id" id="id" innerRef={register({ pattern: /\d+/ })} />
+              <Input disabled type="text" defaultValue={viewedCar.id} name="id" id="id" innerRef={register({ pattern: /\d+/ })} />
             </FormGroup>
             <FormGroup>
               <Label for="vin">VIN</Label>

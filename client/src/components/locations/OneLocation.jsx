@@ -37,15 +37,47 @@ const OneLocation = props => {
   // },[])
 
   // let carItems = [];
-  let viewedCar = useSelector(state => state.locations.viewedLoc);
+  let viewedLoc = useSelector(state => state.locations.viewedLoc);
+
+  let locCars = [];
 
   if(viewedLoc != null && viewedLoc.id != null)
   {
     //continue..
+    locCars = viewedLoc.cars.map(item =>
+      {
+        let card = (
+          <Card key={item.id} className="">
+            <CardImg
+              top
+              width="100%"
+              src={item.photoUrl}
+              alt={`${item.make} ${item.model}`}
+            />
+            <CardBody>
+              <CardTitle>
+                {item.year} {item.make} {item.model}
+              </CardTitle>
+              <CardSubtitle>${item.price}</CardSubtitle>
+              <CardText>
+                <ul>
+                  <li>VIN: {item.vin}</li>
+                  <li>Miles: {item.miles}</li>
+                </ul>
+              </CardText>
+              <a href={"/cars/"+item.id} className="btn btn-primary stretched-link">View Car</a>
+              {/* <Button onClick={`./cars/${item.id}`}>View Car</Button> */}
+              {/* <Button color="primary" className="mr-1" onClick={() =>idAndRedir(item.id)}>View Car</Button>
+              <Button color="warning" className="float-right mr-1" href={"/cars/"+item.id+"/edit" }>Edit</Button>
+              <Button color="danger" className="float-right" onClick={() => deleteAndRedir(item.id) }>Delete</Button> */}
+            </CardBody>
+          </Card>)
+        return card;
+      })
   }
   else
     {
-      dispatch(getOneLoc(props.match.params.car_id, null, props.history));
+      dispatch(getOneLoc(props.match.params.location_id, null, props.history));
     }
 
   let lg1 = (
@@ -55,30 +87,13 @@ const OneLocation = props => {
         <ListGroupItem>ID</ListGroupItem>
         <ListGroupItem>Name</ListGroupItem>
         <ListGroupItem>Address</ListGroupItem>
-        <ListGroupItem>Cars</ListGroupItem>
   </ListGroup>
   </Col>
   <Col>
   <ListGroup className="font-weight-bold">
-        <ListGroupItem>{viewedCar.id}</ListGroupItem>
-        <ListGroupItem>{viewedCar.vin}</ListGroupItem>
-        <ListGroupItem>{viewedCar.year}</ListGroupItem>
-        <ListGroupItem>{viewedCar.make}</ListGroupItem>
-        <ListGroupItem>{viewedCar.model}</ListGroupItem>
-        <ListGroupItem>{viewedCar.miles}</ListGroupItem>
-        <ListGroupItem>${viewedCar.price != null ? viewedCar.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') : null}</ListGroupItem>
-        <ListGroupItem>
-        {viewedCar.location != null ?
-        (<a href={"/locations/"+viewedCar.location.id} >
-          {viewedCar.location.name} 
-        </a>)
-          :null
-        }
-
-          <hr />
-          {viewedCar.location != null ?
-          viewedCar.location.address :null}
-       </ListGroupItem>
+        <ListGroupItem>{viewedLoc.id}</ListGroupItem>
+        <ListGroupItem>{viewedLoc.name}</ListGroupItem>
+        <ListGroupItem>{viewedLoc.address}</ListGroupItem>
   </ListGroup>
   </Col>
   </>
@@ -89,7 +104,7 @@ const OneLocation = props => {
       {/* {console.log(cars)} */}
       <Row>
         <Col>
-          <img src={viewedCar.photoUrl} className="img-fluid" />
+        {locCars}
         </Col>
         <Col md="6" xs="12">
           <Row>
