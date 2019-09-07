@@ -44,6 +44,7 @@ VALUES
 
 3. Please execute the client npm script.
 ```
+cd ./client;
 npm start
 ```
 ### `npm run build`
