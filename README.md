@@ -40,11 +40,18 @@ VALUES
 2. Please start the Java/Spring api with gradle build. To do this from the root dir, it is 
 ```
 ./gradlew bootRun
+
 ```
 
-3. Please execute the client npm script. **Using a separate terminal or thread**
+3. Please download all dependencies for npm.
 ```
 cd ./client;
+npm install; npm start;
+```
+
+4. Please execute the client npm script. **Using a separate terminal or thread**
+```
+#cd ./client;
 npm start
 ```
 ### `npm run build`
