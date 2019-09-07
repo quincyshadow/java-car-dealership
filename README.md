@@ -42,7 +42,7 @@ VALUES
 ./gradlew bootRun
 ```
 
-3. Please execute the client npm script.
+3. Please execute the client npm script. **Using a separate terminal or thread**
 ```
 cd ./client;
 npm start
