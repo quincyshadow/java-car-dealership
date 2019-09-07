@@ -1,13 +1,13 @@
 import * as types from "./constants";
 import axios from "axios";
 
-export const getAllCars = (creds, history) => async dispatch => {
+export const getAllLocs = (creds, history) => async dispatch => {
   dispatch({ type: types.GET_ALL_LOCS_PENDING });
   try {
     let response = await axios.get(types.BASE_URL);
     dispatch({
       type: types.GET_ALL_LOCS_SUCCESS,
-      payload: response.data.cars
+      payload: response.data.locations
     });
     // history.push('/dashboard')
   } catch (err) {
@@ -18,18 +18,18 @@ export const getAllCars = (creds, history) => async dispatch => {
   }
 };
 
-export const getOneCar = (id, creds, history, method) => async dispatch => {
+export const getOneLoc = (id, creds, history, method) => async dispatch => {
   dispatch({ type: types.GET_ONE_LOC_PENDING });
   try {
     let response = await axios.get(`${types.BASE_URL}/${id}`);
     dispatch({
       type: types.GET_ONE_LOC_SUCCESS,
-      payload: response.data.car
+      payload: response.data.location
     });
     if (method == "edit") {
-      // history.push(`/cars/${id}/edit`);
+      // history.push(`/locs/${id}/edit`);
     } else {
-      history.push(`/cars/${id}/`);
+      history.push(`/locations/${id}/`);
     }
   } catch (err) {
     dispatch({
@@ -39,7 +39,7 @@ export const getOneCar = (id, creds, history, method) => async dispatch => {
   }
 };
 
-export const deleteOneCar = (id, cred, history) => async dispatch => {
+export const deleteOneLoc = (id, cred, history) => async dispatch => {
     dispatch({ type: types.DELETE_ONE_LOC_PENDING });
   try {
     let response = await axios.delete(`${types.BASE_URL}/${id}/delete`);
@@ -47,9 +47,9 @@ export const deleteOneCar = (id, cred, history) => async dispatch => {
       type: types.DELETE_ONE_LOC_SUCCESS
     });
     // if (method == "edit") {
-    //   // history.push(`/cars/${id}/edit`);
+    //   // history.push(`/locs/${id}/edit`);
     // } else {
-    //   history.push(`/cars/${id}/`);
+    //   history.push(`/locs/${id}/`);
     // }
   } catch (err) {
     dispatch({

@@ -1,4 +1,4 @@
-export const BASE_URL = '/cars'
+export const BASE_URL = '/locations'
 
 export const GET_ALL_LOCS_PENDING = 'GET_ALL_LOCS_PENDING'
 //

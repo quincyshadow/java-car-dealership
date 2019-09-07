@@ -39,6 +39,7 @@ const AllCars = props => {
 
   let carItems = [];
   let carList = useSelector(state => state.cars.carList);
+
   useEffect(() => {
     getCars();
   },[carList])
@@ -92,6 +93,7 @@ const AllCars = props => {
   return (
     <Container>
       {/* {console.log(cars)} */}
+      <Row><Col><h1>Cars</h1></Col></Row>
       <Row>{carItems}</Row>
 
       {/* {JSON.stringify(carList[0])} */}

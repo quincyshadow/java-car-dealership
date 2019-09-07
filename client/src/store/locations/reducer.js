@@ -32,14 +32,14 @@ export default (state = initialState, action) => {
     case types.GET_ONE_LOC_SUCCESS:
       return {
         ...state,
-        viewedCar: action.payload
+        viewedLoc: action.payload
       };
 
     case types.GET_ONE_LOC_FAILED:
       return {
         ...state,
         err: action.payload,
-        viewedCar: {}
+        viewedLoc: {}
       };
 
     default:

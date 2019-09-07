@@ -10,6 +10,8 @@ import AllCars from './components/cars/AllCars';
 import OneCar from './components/cars/OneCar'
 import NewCar from './components/cars/NewCar'
 import EditCar from './components/cars/EditCar'
+
+import AllLocations from './components/locations/AllLocations'
 function App() {
   return (
     <Router>
@@ -18,7 +20,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Login} />
 
-          {/* <Route path="/locations" component={Locations} /> */}
+          <Route path="/locations" component={AllLocations} />
           {/* <Route path="/locations/:location_id" component={LocationSummary} /> */}
           {/* <Route path="/locations/new" component={NewLocation} /> */}
           {/* <Route path="/locations/:location_id/edit" component={LocationSummaryEdit} /> */}
